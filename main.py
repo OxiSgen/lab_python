@@ -22,6 +22,6 @@ if __name__ == '__main__':
     cartoteka = menu_cartoteka()
     try:
         while True:
-            type(cartoteka.methods[main()-1]())
+            cartoteka.methods[main()-1]()
     except Exception as ex:
         print(ex, "\nbye")
