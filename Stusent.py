@@ -1,8 +1,8 @@
 class Student:
     def __init__(self, name, surname, age):
-        self.name = name
-        self.surname = surname
-        self.age = age
+        self.__name = name
+        self.__surname = surname
+        self.__age = age
 
     def __str__(self, *args):
-        return (str(a) for a in args)
+        return "Имя: {} Фамилия: {} Возраст: {}".format(self.__name, self.__surname, self.__age)

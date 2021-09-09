@@ -1,4 +1,4 @@
-from kartoteka import menu_cartoteka
+from kartoteka import MenuCartoteka
 
 container = {
     1: "Добавить элемент",
@@ -19,7 +19,7 @@ def main():
 
 
 if __name__ == '__main__':
-    cartoteka = menu_cartoteka()
+    cartoteka = MenuCartoteka()
     try:
         while True:
             cartoteka.methods[main()-1]()

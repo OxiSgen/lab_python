@@ -2,7 +2,7 @@ from Stusent import Student as St
 from Captain import Captain as Cap
 
 
-class menu_cartoteka:
+class MenuCartoteka:
 	def __init__(self):
 		self.methods = [
 			self.add,
@@ -15,20 +15,19 @@ class menu_cartoteka:
 		self.cartoteka = []
 
 	def add(self):
-		case = int(input("0 - Студент, 1  - Староста"))
-		if case == 0:
-			pass
-		elif case == 1:
-			pass
-		else:
-			pass
-		print(St().name)
-		self.cartoteka.append(St().name)
-		print("add")
+		while True:
+			case = int(input("0 - Студент, 1  - Староста: \n"))
+			if case == 0:
+				self.cartoteka.append(St("qwerty", "uiop", 10))
+				break
+			elif case == 1:
+				self.cartoteka.append(Cap("adsfd", "fwerf", 22))
+				break
+			else:
+				print("Введи уже что-то разумное..")
 
 	def print(self):
-		print(self.cartoteka)
-		print("print")
+		print(list(map(str, self.cartoteka)))
 
 	def file_read(self):
 		print("dnfdshfkj")
