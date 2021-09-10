@@ -21,13 +21,14 @@ class MenuCartoteka:
 				self.cartoteka.append(St("qwerty", "uiop", 10))
 				break
 			elif case == 1:
-				self.cartoteka.append(Cap("adsfd", "fwerf", 22))
+				self.cartoteka.append(Cap("adsfd", "fwerf", 22, 1000))
 				break
 			else:
 				print("Введи уже что-то разумное..")
 
 	def print(self):
-		print(list(map(str, self.cartoteka)))
+		for st in self.cartoteka:
+			st.do_input_output()
 
 	def file_read(self):
 		print("dnfdshfkj")
