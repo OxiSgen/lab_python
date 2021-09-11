@@ -1,11 +1,13 @@
 from Stusent import Student as St
 from Captain import Captain as Cap
 from ConsoleIO import ConsoleInput as CI
+from FileIO import FileOutputPickle, FileOutputShelve
 
 
 class MenuCartoteka:
-	def __init__(self):
-		self.cartoteka = []
+	def __init__(self, strategy=FileOutputPickle()):
+		self.__cart = []
+		self.__strategy = strategy
 
 	def add(self):
 		while True:
@@ -14,11 +16,11 @@ class MenuCartoteka:
 			surname = CI().do_input("Фамилия")
 			age = CI().do_input("Возраст")
 			if case == 0:
-				self.cartoteka.append(St(name, surname, age))
+				self.__cart.append(St(name, surname, age))
 				break
 			elif case == 1:
 				grant = CI().do_input("Надбавка")
-				self.cartoteka.append(Cap(name, surname, age, grant))
+				self.__cart.append(Cap(name, surname, age, grant))
 				break
 			else:
 				print("Введи уже что-то разумное..")
@@ -28,16 +30,23 @@ class MenuCartoteka:
 
 	def print(self):
 		# Strategy ?
-		for st in self.cartoteka:
+		for st in self.__cart:
 			st.output()
 
 	def file_read(self):
-		print("dnfdshfkj")
+		self.__strategy.do_output(self.__cart)
 
 	def file_write(self):
-		print("dnfdshfkj")
+		self.__cart = self.__strategy.do_input()
 
 	def clear(self):
-		self.cartoteka.clear()
-		print("dnfdshfkj")
+		self.__cart.clear()
+
+	@property
+	def strategy(self):
+		return self.__strategy
+
+	@strategy.setter
+	def strategy(self, strategy) -> None:
+		self.__strategy = strategy
 
