@@ -1,18 +1,23 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 
-class ConsoleIO(ABC):
+class ConsoleOutputInterface(ABC):
     @abstractmethod
-    def do_action(self, data):
+    def do_output(self, arg):
         pass
 
 
-class ConsoleInput(ConsoleIO):
-    def do_action(self):
-        input()
+class ConsoleOutput(ConsoleOutputInterface):
+    def do_output(self, arg):
+        print(arg.name_and_age())
 
 
-class ConsoleOutput(ConsoleIO):
-    def do_action(self, arg):
+class ConsoleOutputModify(ConsoleOutputInterface):
+    def do_output(self, arg):
         print(arg)
+
+
+class ConsoleInput:
+    @staticmethod
+    def do_input(field_name):
+        return input(f'Введите { field_name }:')

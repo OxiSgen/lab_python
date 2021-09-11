@@ -6,3 +6,6 @@ class Captain(Student):
         super().__init__(name, surname, age)
         self.__grants = grants
 
+    def __str__(self):
+        return super().__str__() + f', Надбавка { self.__grants }'
+
