@@ -1,13 +1,12 @@
-from ConsoleIO import ConsoleOutputInterface, ConsoleOutputModify, ConsoleOutput, ConsoleInput
+from ConsoleIO import WebIO, ConsoleIO
 
 
 class Student:
-    def __init__(self, name, surname, age, output=ConsoleOutput()):
+    def __init__(self, name, surname, age, output=ConsoleIO()):
         self.__name = name
         self.__surname = surname
         self.__age = age
         self.__output = output
-        self.__input = ConsoleInput()
 
     @property
     def out(self):

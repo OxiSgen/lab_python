@@ -1,7 +1,7 @@
+from ConsoleIO import ConsoleIO as CI
+from FileIO import FileOutputPickle, FileOutputShelve
 from Stusent import Student as St
 from Captain import Captain as Cap
-from ConsoleIO import ConsoleInput as CI
-from FileIO import FileOutputPickle, FileOutputShelve
 
 
 class MenuCartoteka:
@@ -10,26 +10,14 @@ class MenuCartoteka:
 		self.__strategy = strategy
 
 	def add(self):
-		while True:
-			case = int(input("0 - Студент, 1  - Староста: \n"))
-			name = CI().do_input("Имя")
-			surname = CI().do_input("Фамилия")
-			age = CI().do_input("Возраст")
-			if case == 0:
-				self.__cart.append(St(name, surname, age))
-				break
-			elif case == 1:
-				grant = CI().do_input("Надбавка")
-				self.__cart.append(Cap(name, surname, age, grant))
-				break
-			else:
-				print("Введи уже что-то разумное..")
+		case = int(input("0 - Студент, 1  - Староста: \n"))
+		student = St if 0 else Cap
+		self.__cart.append(CI.do_input(student))
 
 	def change(self):
 		pass
 
 	def print(self):
-		# Strategy ?
 		for st in self.__cart:
 			st.output()
 
