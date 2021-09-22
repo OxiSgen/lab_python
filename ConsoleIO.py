@@ -1,23 +1,26 @@
 from abc import ABC, abstractmethod
 
 
-class ConsoleOutputInterface(ABC):
+class IOInterface(ABC):
     @abstractmethod
     def do_output(self, arg):
         pass
 
+    def do_input(self):
+        pass
 
-class ConsoleOutput(ConsoleOutputInterface):
+
+class ConsoleOutput(IOInterface):
     def do_output(self, arg):
         print(arg.name_and_age())
 
+    def do_input(self):
+        pass
 
-class ConsoleOutputModify(ConsoleOutputInterface):
+
+class WebOutput(IOInterface):
     def do_output(self, arg):
-        print(arg)
+        pass
 
-
-class ConsoleInput:
-    @staticmethod
-    def do_input(field_name):
-        return input(f'Введите { field_name }:')
+    def do_input(self):
+        pass
